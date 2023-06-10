@@ -14,6 +14,7 @@ const session = require("express-session")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose");
 const userRoute = require("./routes/user-routes");
+const questionRoute = require("./routes/question-routes");
 const port = process.env.PORT
 require('./db/db')
 
@@ -21,6 +22,7 @@ require('./db/db')
 
 app.use(express.json())
 app.use(userRoute)
+app.use('/questions',questionRoute)
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
